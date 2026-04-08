@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     return json(res, 405, { error: "Method not allowed" });
   }
 
-  const response = await supabaseFetch("/rest/v1/diseases?select=pk,primary_specialty,all_specialties", {}, false);
+  const response = await supabaseFetch("/rest/v1/diseases?select=pk,primary_specialty,all_specialties&order=pk.asc&limit=5000", {}, false);
   if (!response.ok) {
     const message = await response.text();
     return json(res, response.status, { error: message });

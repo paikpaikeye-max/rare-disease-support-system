@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
   const search = String(req.query.search || "").trim().toLowerCase();
   const specialty = String(req.query.specialty || "").trim();
 
-  const response = await supabaseFetch("/rest/v1/diseases?select=*", {}, false);
+  const response = await supabaseFetch("/rest/v1/diseases?select=*&order=pk.asc&limit=5000", {}, false);
   if (!response.ok) {
     const message = await response.text();
     return json(res, response.status, { error: message });
