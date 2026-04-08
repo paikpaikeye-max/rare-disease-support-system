@@ -1,0 +1,50 @@
+specialty,match_field,pattern,note
+안과,english,\boptic neuropath(y|ies)\b,명확한 안과 질환명
+안과,english,\bretinopath(y|ies)\b,명확한 안과 질환명
+안과,english,\bretinal dystroph(y|ies)\b,명확한 안과 질환명
+안과,english,\bretinitis pigmentosa\b,명확한 안과 질환명
+안과,english,\bmacular degeneration\b,명확한 안과 질환명
+안과,english,\bmacular dystroph(y|ies)\b,명확한 안과 질환명
+안과,english,\bchorioretinopath(y|ies)\b,명확한 안과 질환명
+안과,english,\bchoroideremia\b,명확한 안과 질환명
+안과,english,\bocular albinism\b,명확한 안과 질환명
+안과,english,\baniridia\b,명확한 안과 질환명
+안과,english,\bcongenital glaucoma\b,명확한 안과 질환명
+안과,english,\bkeratoconus\b,명확한 안과 질환명
+안과,english,\bcorneal dystroph(y|ies)\b,명확한 안과 질환명
+안과,english,\bcataract(s)?\b,명확한 안과 질환명
+안과,english,\bcoats( disease| retinopathy)?\b,명확한 안과 질환명
+안과,english,\bjuvenile retinoschisis\b,명확한 안과 질환명
+안과,korean,시신경병증,명확한 안과 질환명
+안과,korean,망막병증,명확한 안과 질환명
+안과,korean,망막디스트로피,명확한 안과 질환명
+안과,korean,황반변성,명확한 안과 질환명
+안과,korean,무홍채증,명확한 안과 질환명
+안과,korean,선천녹내장,명확한 안과 질환명
+안과,korean,원추각막,명확한 안과 질환명
+안과,korean,각막디스트로피,명확한 안과 질환명
+안과,korean,백내장,명확한 안과 질환명
+안과,korean,코츠망막병증,명확한 안과 질환명
+심장내과/소아심장과,english,\bcardiomyopath(y|ies)\b,명확한 심장 질환명
+심장내과/소아심장과,english,\baortic aneurysm\b,명확한 심장 질환명
+심장내과/소아심장과,english,\bmitral (atresia|insufficiency|stenosis)\b,명확한 심장 질환명
+심장내과/소아심장과,korean,심근병증,명확한 심장 질환명
+심장내과/소아심장과,korean,대동맥동맥류,명확한 심장 질환명
+심장내과/소아심장과,korean,승모판,명확한 심장 질환명
+신장내과,english,\bpolycystic kidney\b,명확한 신장 질환명
+신장내과,english,\bchronic kidney disease\b,명확한 신장 질환명
+신장내과,english,\brenal disease\b,명확한 신장 질환명
+신장내과,korean,다낭성 신장,명확한 신장 질환명
+신장내과,korean,만성 신장병,명확한 신장 질환명
+신경과,english,\bepilepsy\b,명확한 신경 질환명
+신경과,english,\bataxia\b,명확한 신경 질환명
+신경과,english,\bneuropathy\b,명확한 신경 질환명
+신경과,korean,뇌전증,명확한 신경 질환명
+신경과,korean,운동실조,명확한 신경 질환명
+신경과,korean,신경병증,명확한 신경 질환명
+이비인후과,english,\bsensorineural hearing loss\b,명확한 이비인후과 질환명
+이비인후과,korean,감각신경성 난청,명확한 이비인후과 질환명
+정형외과,english,\bosteochondrodysplasia\b,명확한 정형외과 질환명
+정형외과,english,\bpaget.?s disease of bone\b,명확한 정형외과 질환명
+정형외과,korean,골연골형성이상,명확한 정형외과 질환명
+정형외과,korean,뼈의 파젯병,명확한 정형외과 질환명

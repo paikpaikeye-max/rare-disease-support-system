@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>희귀질환 유전자진단지원사업 프로토타입</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <h1>희귀질환 유전자진단지원사업<br>지원 시스템</h1>
+        <p class="hero-copy">
+          대상질환 검색 및 지원서 작성 간소화 시스템입니다
+        </p>
+      </div>
+      <div class="hero-stat">
+        <span>등록 질환</span>
+        <strong id="disease-count">0</strong>
+        <small>질병관리청 헬프라인 2026년 4월 데이터 기준</small>
+      </div>
+    </header>
+
+    <nav class="tabbar" aria-label="주요 기능">
+      <button class="tab is-active" data-tab-target="guide">지원사업 안내</button>
+      <button class="tab" data-tab-target="search">질환 검색</button>
+      <button class="tab" data-tab-target="specialty">진료과별 질환 검색</button>
+      <button class="tab" data-tab-target="form">의뢰서 작성</button>
+    </nav>
+
+    <main>
+      <section class="panel is-active" id="tab-guide">
+        <div class="grid two">
+          <article class="card">
+            <h2>지원 가능 검사 종류</h2>
+            <ul class="plain-list">
+              <li>전장유전체 염기서열 분석검사(Whole genome sequencing, WGS)</li>
+              <li>척수성 근위축증(Spinal muscular atrophy, SMA) 선별 및 진단검사 지원</li>
+              <li>가족검사 지원(WGS 검사 후 희귀질환 진단 시 부모 및 형제 등 3인 내외)</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>지원 사업 기간</h2>
+            <ul class="plain-list">
+              <li>2026. 04. 01 ~ 2026. 11. 30</li>
+              <li>(단, 전국 34개 참여기관에서 연계 목표건수 1,150명 달성 시 조기 마감)</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid two">
+          <article class="card accent">
+            <h2>등록 기준</h2>
+            <ul class="plain-list tier-1">
+              <li>희귀질환 의심환자 본인 1인만 등록 가능</li>
+              <li>아래 항목들 중 하나라도 해당(원인미상에 한함)되는 경우 WGS 의뢰 가능</li>
+            </ul>
+            <ul class="plain-list tier-2">
+              <li>전반적인 발달지연 또는 지적장애가 있는 경우</li>
+              <li>
+                원인불명의 다발성 기형이 있는 경우
+                <ul class="plain-list tier-3">
+                  <li>2개 이상의 Major organ(심장, 신장, 간 등)을 침범하는 경우</li>
+                  <li>1개 이상의 Major organ + 2개 이상의 Minor organ의 증상을 보이는 경우</li>
+                  <li>3개 이상의 Minor organ의 증상을 보이는 경우</li>
+                </ul>
+              </li>
+              <li>생후 수일 이내 또는 6개월 미만의 아주 어린 나이에 경련이 시작되는 경우</li>
+              <li>유전성 희귀 혈액 질환 / 유전성 신경근육 또는 골격계질환 / 유전성 안과질환 / 유전성 피부질환이 의심되는 경우</li>
+              <li>
+                자폐스펙트럼의 경우 동반된 임상증상이 함께 있는 경우
+                <div class="sub-note">예: 발달지연, 안면이형성, 신체 타기관 침범 소견 등</div>
+              </li>
+              <li>비특이적인 증상을 보이는 희귀질환이 의심되는 환자에서 가족력이 있는 경우</li>
+            </ul>
+          </article>
+
+          <div class="stack">
+            <article class="card">
+              <h2>참여기관 수</h2>
+              <ul class="plain-list">
+                <li>비수도권 25개 기관 + 수도권 일부 포함 9개 기관 = 전국 34개 기관</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h2>검사기관</h2>
+              <ul class="plain-list">
+                <li>사업수행기관: 양산부산대학교병원</li>
+                <li>외부진단검사기관: 3billion</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h2>제외 기준</h2>
+              <ul class="plain-list">
+                <li>국가통합 바이오 빅데이터 사업 등 검사방법(WGS)이 같은 진단지원사업 참여 이력이 있는 경우</li>
+                <li>외국인 환자(단, 가족 중 1인이라도 한국 국적을 가지고 있으면 의뢰 가능)</li>
+              </ul>
+            </article>
+
+            <article class="card">
+            <h2>문의사항</h2>
+            <ul class="plain-list">
+              <li>자세한 사항은 희귀질환센터로 문의 주십시오.</li>
+              <li>희귀질환센터 내선번호: 5702</li>
+              <li>Email: kdh6830@naver.com | 095343@paik.ac.kr</li>
+              <li>질병관리청 헬프라인: <a href="https://helpline.kdca.go.kr/cdchelp/ph/supbiz/selectMdepSupList.do?menu=B0102" target="_blank" rel="noreferrer">대상질환 조회</a></li>
+            </ul>
+          </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="tab-search">
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <h2>질환 검색</h2>
+              <p>국문명, 영문명, KCD 코드, 산정특례코드로 검색할 수 있습니다.</p>
+            </div>
+            <div class="selection-badge" id="selected-disease-badge">선택된 질환 없음</div>
+          </div>
+          <div class="toolbar">
+            <input id="global-search-input" type="search" placeholder="예: 망막, optic neuropathy, H35.3">
+          </div>
+          <div class="result-meta" id="global-result-meta"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>질환명</th>
+                  <th>영문명</th>
+                  <th>KCD 코드</th>
+                  <th>산정특례 코드</th>
+                  <th>주진료과</th>
+                </tr>
+              </thead>
+              <tbody id="global-results"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="tab-specialty">
+        <article class="card">
+          <div class="section-head">
+            <div>
+              <h2>진료과별 질환 검색</h2>
+              <p>주진료과 기준으로 1차 분류된 질환을 진료과별로 모아볼 수 있습니다.</p>
+            </div>
+            <button class="ghost-button" id="open-disclaimer-button" type="button">안내문 다시 보기</button>
+          </div>
+
+          <div class="toolbar split">
+            <select id="specialty-filter"></select>
+            <input id="specialty-search-input" type="search" placeholder="선택한 진료과 안에서 질환명 검색">
+          </div>
+          <label class="checkbox-row">
+            <input id="exclude-multidisciplinary-checkbox" type="checkbox">
+            <span>관련과 3개 초과인 질환 제외</span>
+          </label>
+          <label class="checkbox-row">
+            <input id="exclude-related-two-or-more-checkbox" type="checkbox">
+            <span>관련과 2개 초과인 질환 제외</span>
+          </label>
+          <label class="checkbox-row">
+            <input id="primary-only-checkbox" type="checkbox">
+            <span>주진료과인 것만 표시</span>
+          </label>
+
+          <div class="specialty-summary" id="specialty-summary"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>질환명</th>
+                  <th>영문명</th>
+                  <th>KCD 코드</th>
+                  <th>산정특례 코드</th>
+                  <th>주진료과</th>
+                </tr>
+              </thead>
+              <tbody id="specialty-results"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="tab-form">
+        <article class="card">
+          <div class="section-head">
+            <div>
+                <h2>유전자검사 의뢰서 작성</h2>
+                <p>질환을 먼저 선택하면 의심질환명이 자동 입력됩니다.</p>
+                <div class="mail-guide">
+                  <span>정보 입력 후 출력-PDF로 저장하시어 메일로 보내 주십시오. <strong>kdh6830@naver.com</strong></span>
+                  <button id="copy-mail-button" class="ghost-button" type="button">복사</button>
+                  <span class="inline-feedback" id="copy-mail-feedback"></span>
+                </div>
+              </div>
+            <div class="button-row">
+              <button id="download-pdf-button" class="ghost-button" type="button" disabled>출력 / PDF 저장</button>
+            </div>
+          </div>
+
+          <form id="referral-form" class="referral-form is-disabled">
+            <div class="referral-sheet">
+              <table class="sheet-table">
+                <colgroup>
+                  <col class="col-label">
+                  <col class="col-value">
+                  <col class="col-label">
+                  <col class="col-value">
+                  <col class="col-label">
+                  <col class="col-value">
+                </colgroup>
+                <tr>
+                  <th>등록번호</th>
+                  <td><input name="registrationNumber" type="text"></td>
+                  <th>성별</th>
+                  <td>
+                    <div class="radio-line">
+                      <label><input name="sex" type="radio" value="남"> 남</label>
+                      <label><input name="sex" type="radio" value="여"> 여</label>
+                    </div>
+                  </td>
+                  <th>생년월일</th>
+                  <td><input name="birthDate" type="text" placeholder="YYYY-MM-DD"></td>
+                </tr>
+                <tr>
+                  <th>
+                    <span class="inline-help-label">
+                      <span>HPO</span>
+                      <button id="open-hpo-help-button" class="help-icon-button" type="button" aria-label="HPO 설명 보기">?</button>
+                    </span>
+                  </th>
+                  <td colspan="5">
+                    <input id="hpo-hidden-input" name="hpo" type="hidden">
+                    <div class="hpo-picker">
+                      <div id="hpo-selected-list" class="chip-row hpo-selected-list">
+                        <span class="hpo-placeholder">선택된 HPO가 없습니다.</span>
+                      </div>
+                      <div class="button-row">
+                        <button id="open-hpo-modal-button" class="ghost-button" type="button">HPO 검색/선택</button>
+                        <button id="clear-hpo-button" class="ghost-button" type="button">전체 삭제</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>의심질환명</th>
+                  <td colspan="5"><input id="suspected-disease-input" name="suspectedDisease" type="text" readonly></td>
+                </tr>
+                <tr class="tall-row">
+                  <th>임상소견</th>
+                  <td colspan="5"><textarea name="clinicalFinding" rows="4"></textarea></td>
+                </tr>
+                <tr>
+                  <th>증상발현시기</th>
+                  <td><input name="symptomOnset" type="text"></td>
+                  <th>증상지속시간</th>
+                  <td><input name="symptomDuration" type="text"></td>
+                  <th>증상발생빈도</th>
+                  <td><input name="symptomFrequency" type="text"></td>
+                </tr>
+                <tr class="tall-row">
+                  <th>증상세부내용</th>
+                  <td colspan="5"><textarea name="symptomDetail" rows="4"></textarea></td>
+                </tr>
+                <tr class="mid-row">
+                  <th>가족력</th>
+                  <td><textarea name="familyHistory" rows="2"></textarea></td>
+                  <th>가족구성원</th>
+                  <td><textarea name="familyMember" rows="2"></textarea></td>
+                  <th class="compact-label">유전자검사시행여부</th>
+                  <td>
+                    <div class="genetic-test-cell">
+                      <div class="radio-line compact">
+                        <label><input name="geneticTestPerformed" type="radio" value="유"> 유</label>
+                        <label><input name="geneticTestPerformed" type="radio" value="무"> 무</label>
+                      </div>
+                      <input name="geneticTestPerformedNote" type="text">
+                    </div>
+                  </td>
+                </tr>
+                <tr class="section-start">
+                  <th rowspan="6">검사소견</th>
+                  <th>신체검진</th>
+                  <td colspan="4"><textarea name="physicalExam" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                  <th>영상의학검사</th>
+                  <td colspan="4"><textarea name="imagingStudy" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                  <th>조직학검사</th>
+                  <td colspan="4"><textarea name="histologyStudy" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                  <th>혈액검사</th>
+                  <td colspan="4"><textarea name="bloodStudy" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                  <th>유전자검사</th>
+                  <td colspan="4"><textarea name="geneticStudy" rows="3"></textarea></td>
+                </tr>
+                <tr>
+                  <th>기타(기능검사)</th>
+                  <td colspan="4"><textarea name="otherFunctionalStudy" rows="3"></textarea></td>
+                </tr>
+                <tr class="tall-row">
+                  <th>의심되는 원인 유전자</th>
+                  <td colspan="5"><textarea name="suspectedGene" rows="4"></textarea></td>
+                </tr>
+              </table>
+            </div>
+          </form>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop is-visible" id="specialty-disclaimer-modal" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+    <div class="modal">
+      <h2 id="disclaimer-title">이용 전 확인사항</h2>
+      <p>
+        이 페이지는 유전자진단지원사업 대상질환의 해당 여부 검색 및 의뢰서 작성을 진료 중에 간편하게 할 수 있도록 만든 페이지입니다.
+        이 페이지는 희귀질환센터와 관계 없이 개인적 편의를 위해 만들었으며, AI 도움하에 질병관리청 데이터베이스와 Orphanet을 통한 일차 진료과 분류를 시행하였기 때문에 분류가 부정확할 수 있습니다.
+      </p>
+      <p>
+        특히 관련과를 잘못 분류하는 것 보다는 미분류 상태로 놔 두었기 때문에, 진료과별 목록 검색에 해당 질환이 분류되지 않을 수 있습니다.
+        전체 질환 검색에서 해당질환명을 검색하시어, 특정 진료과별 분류에 추가 하고싶으실 경우 질환을 클릭하여 추가할 수 있습니다.
+      </p>
+      <p>
+        정확한 데이터베이스 검색을 원하시면 첫 페이지 문의사항-질병관리청 헬프라인의 희귀질환 검색을 이용하여 주십시오.
+        다만, 질병관리청 헬프라인에서는 전체 질환 검색만 가능하며, 관련과 분류 정보가 없습니다.
+      </p>
+      <p>
+        감사합니다<br>
+        인제대학교 부산백병원 안과 조교수 김동근
+      </p>
+      <div class="modal-actions">
+        <button class="primary-button" type="button" id="accept-disclaimer-button">상기 내용을 확인하였습니다</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="add-specialty-modal" role="dialog" aria-modal="true" aria-labelledby="add-specialty-title">
+    <div class="modal">
+      <p class="eyebrow">관련과 추가</p>
+      <h2 id="add-specialty-title">추가할 과 선택</h2>
+      <p>등록된 과 목록에서 선택하면 현재 질환의 과 목록에 즉시 반영됩니다.</p>
+      <div class="inline-select-row">
+        <select id="add-specialty-select"></select>
+      </div>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" id="cancel-add-specialty-button">취소</button>
+        <button class="primary-button" type="button" id="confirm-add-specialty-button">추가</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="hpo-modal" role="dialog" aria-modal="true" aria-labelledby="hpo-modal-title">
+    <div class="modal hpo-modal">
+      <p class="eyebrow">HPO 검색</p>
+      <h2 id="hpo-modal-title">HPO 용어 검색 및 선택</h2>
+      <p>영문 용어 또는 HPO ID로 검색해 선택할 수 있습니다. 예: `visual impairment`, `retinal`, `HP:0000505`</p>
+      <div class="toolbar">
+        <input id="hpo-search-input" type="search" placeholder="HPO 영문명 또는 ID 검색">
+      </div>
+      <div class="result-meta" id="hpo-result-meta"></div>
+      <div id="hpo-results" class="hpo-results"></div>
+      <div class="hpo-manual-box">
+        <label for="hpo-manual-input">직접 입력</label>
+        <div class="inline-select-row">
+          <input id="hpo-manual-input" type="text" placeholder="예: HP:0000505 Visual impairment">
+          <button id="add-hpo-manual-button" class="primary-button" type="button">추가</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="ghost-button" type="button" id="close-hpo-modal-button">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="hpo-help-modal" role="dialog" aria-modal="true" aria-labelledby="hpo-help-title">
+    <div class="modal">
+      <p class="eyebrow">HPO 안내</p>
+      <h2 id="hpo-help-title">HPO란 무엇인가요?</h2>
+      <p>
+        HPO는 <strong>Human Phenotype Ontology</strong>의 약자입니다.
+        환자의 증상, 신체 소견, 임상 표현형을 표준화된 용어로 기록하기 위한 국제적 용어 체계입니다.
+      </p>
+      <p>
+        예를 들어 시력저하, 시신경위축, 발달지연 같은 표현을 자유서술 대신 HPO 용어와 코드로 정리하면
+        유전질환 검색, 증상 기반 매칭, 데이터 공유에 도움이 됩니다.
+      </p>
+      <p>
+        이 페이지에서는 HPO를 여러 개 선택해 의뢰서에 함께 넣을 수 있습니다.
+        예: <code>HP:0000505 Visual impairment</code>
+      </p>
+      <div class="modal-actions">
+        <button class="primary-button" type="button" id="close-hpo-help-button">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app_api.js?v=20260408-2"></script>
+</body>
+</html>
