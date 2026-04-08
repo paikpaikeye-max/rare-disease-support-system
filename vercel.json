@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/webapp/index.html" },
+    { "source": "/styles.css", "destination": "/webapp/styles.css" },
+    { "source": "/app_api.js", "destination": "/webapp/app_api.js" },
+    { "source": "/title-image.png", "destination": "/webapp/title image.png" },
+    { "source": "/title image.png", "destination": "/webapp/title image.png" }
+  ]
+}

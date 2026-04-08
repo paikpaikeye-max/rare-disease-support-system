@@ -552,7 +552,7 @@ function checkedMark(current, expected) {
 
 function buildPrintableReferralHtml(values, diseaseName) {
   const text = (value) => escapeHtml(value || "");
-  const titleImageUrl = `${window.location.origin}/title%20image.png`;
+  const titleImageUrl = `${window.location.origin}/title-image.png`;
   return `<!DOCTYPE html>
   <html lang="ko">
   <head>
@@ -674,7 +674,10 @@ function rerenderAllViews() {
 async function handleRelatedSpecialtyRequest(action, diseaseId, specialty) {
   if (action === "remove") {
     if (!window.confirm(`"${specialty}"를 관련과에서 제외 요청하시겠습니까?`)) return;
-    const updated = await apiFetchProtectedJson(`/api/diseases/${diseaseId}/specialties/${encodeURIComponent(specialty)}`, { method: "DELETE" });
+    const updated = await apiFetchProtectedJson("/api/mutations", {
+      method: "POST",
+      body: JSON.stringify({ action: "removeSpecialty", diseaseId, specialty }),
+    });
     upsertDisease(updated);
     await loadSpecialties();
     rerenderAllViews();
@@ -682,9 +685,9 @@ async function handleRelatedSpecialtyRequest(action, diseaseId, specialty) {
   }
   if (action === "add") {
     if (!window.confirm(`"${specialty}"를 관련과에 추가 요청하시겠습니까?`)) return;
-    const updated = await apiFetchProtectedJson(`/api/diseases/${diseaseId}/specialties`, {
+    const updated = await apiFetchProtectedJson("/api/mutations", {
       method: "POST",
-      body: JSON.stringify({ specialty }),
+      body: JSON.stringify({ action: "addSpecialty", diseaseId, specialty }),
     });
     upsertDisease(updated);
     await loadSpecialties();
@@ -694,9 +697,9 @@ async function handleRelatedSpecialtyRequest(action, diseaseId, specialty) {
 
 async function changePrimarySpecialty(diseaseId, specialty) {
   if (!window.confirm(`주진료과를 "${specialty}"로 변경하시겠습니까?`)) return;
-  const updated = await apiFetchProtectedJson(`/api/diseases/${diseaseId}/primary`, {
+  const updated = await apiFetchProtectedJson("/api/mutations", {
     method: "POST",
-    body: JSON.stringify({ specialty }),
+    body: JSON.stringify({ action: "setPrimary", diseaseId, specialty }),
   });
   upsertDisease(updated);
   await loadSpecialties();
