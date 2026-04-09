@@ -212,6 +212,14 @@ async function loadSpecialties() {
   specialtyList = data.items.slice().sort((a, b) => a.localeCompare(b, "ko"));
 }
 
+async function loadInitialData() {
+  await Promise.all([loadDiseases(), loadSpecialties()]);
+  els.diseaseCount.textContent = diseases.length.toLocaleString("ko-KR");
+  renderGlobalResults();
+  renderSpecialtyFilter();
+  renderSpecialtyResults();
+}
+
 function upsertDisease(updatedDisease) {
   const normalized = normalizeDisease(updatedDisease);
   const index = diseases.findIndex((item) => item.id === normalized.id);
@@ -841,20 +849,18 @@ function bindEvents() {
   });
 }
 
-async function init() {
-  await loadDiseases();
-  await loadSpecialties();
+function init() {
   hydrateSpecialtyPreferences();
-  els.diseaseCount.textContent = diseases.length.toLocaleString("ko-KR");
-  renderGlobalResults();
-  renderSpecialtyFilter();
-  renderSpecialtyResults();
-  renderSelectedHpoTerms();
   bindEvents();
   setFormEnabled(false);
+  renderSelectedHpoTerms();
+  els.diseaseCount.textContent = "…";
+  els.globalResultMeta.textContent = "데이터를 불러오는 중입니다.";
+  els.specialtySummary.textContent = "데이터를 불러오는 중입니다.";
+  loadInitialData().catch((error) => {
+    console.error(error);
+    window.alert("데이터를 불러오지 못했습니다. 서버 또는 환경설정을 확인해 주세요.");
+  });
 }
 
-init().catch((error) => {
-  console.error(error);
-  window.alert("데이터를 불러오지 못했습니다. 서버가 실행 중인지 확인해 주세요.");
-});
+init();
